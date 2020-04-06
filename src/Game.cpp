@@ -5,6 +5,7 @@
 #include <iomanip>
 
 
+
 Game* Game::s_pInstance = 0;
 
 // Game functions - DO NOT REMOVE ***********************************************
@@ -150,6 +151,10 @@ void Game::changeSceneState(SceneState newState)
 		case SceneState::START_SCENE:
 			m_currentScene = new StartScene();
 			std::cout << "start scene activated" << std::endl;
+			break;
+		case SceneState::INSTURCTION_SCENE:
+			m_currentScene = new InstructionScene();
+			std::cout << "instruction scene activated" << std::endl;
 			break;
 		case SceneState::LEVEL1_SCENE:
 			m_currentScene = new Level1Scene();

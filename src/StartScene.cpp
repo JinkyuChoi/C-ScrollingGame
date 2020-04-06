@@ -19,14 +19,20 @@ void StartScene::draw()
 	m_pMap->draw();
 	m_pStartLabel->draw();
 	m_pStartButton->draw();
-	
+	m_pInstructionButton->draw();
+	m_pExitButton->draw();
 }
 
 void StartScene::update()
 {
-	m_pMap->update();
 	m_pStartButton->setMousePosition(m_mousePosition);
 	m_pStartButton->ButtonClick();
+
+	m_pInstructionButton->setMousePosition(m_mousePosition);
+	m_pInstructionButton->ButtonClick();
+
+	m_pExitButton->setMousePosition(m_mousePosition);
+	m_pExitButton->ButtonClick();
 }
 
 void StartScene::clean()
@@ -38,7 +44,6 @@ void StartScene::clean()
 
 void StartScene::handleEvents()
 {
-	int wheel = 0;
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
@@ -57,6 +62,8 @@ void StartScene::handleEvents()
 			{
 			case SDL_BUTTON_LEFT:
 				m_pStartButton->setMouseButtonClicked(true);
+				m_pInstructionButton->setMouseButtonClicked(true);
+				m_pExitButton->setMouseButtonClicked(true);
 				break;
 			}
 
@@ -66,29 +73,8 @@ void StartScene::handleEvents()
 			{
 			case SDL_BUTTON_LEFT:
 				m_pStartButton->setMouseButtonClicked(false);
-				break;
-			}
-			break;
-		case SDL_MOUSEWHEEL:
-			wheel = event.wheel.y;
-			break;
-
-
-
-
-
-			
-		case SDL_KEYDOWN:
-			switch (event.key.keysym.sym)
-			{
-			case SDLK_ESCAPE:
-				TheGame::Instance()->quit();
-				break;
-			case SDLK_1:
-				TheGame::Instance()->changeSceneState(SceneState::LEVEL1_SCENE);
-				break;
-			case SDLK_2:
-				TheGame::Instance()->changeSceneState(SceneState::END_SCENE);
+				m_pInstructionButton->setMouseButtonClicked(false);
+				m_pExitButton->setMouseButtonClicked(false);
 				break;
 			}
 			break;
@@ -113,8 +99,17 @@ void StartScene::start()
 	addChild(m_pStartLabel);
 
 	m_pStartButton = new StartButton();
-	m_pStartButton->setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.5f));
+	m_pStartButton->setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.4f));
 	addChild(m_pStartButton);
+
+	m_pInstructionButton = new InstructionButton();
+	m_pInstructionButton->setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.6f));
+	addChild(m_pInstructionButton);
+
+	m_pExitButton = new ExitButton();
+	m_pExitButton->setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.8f));
+	addChild(m_pExitButton);
+	
 }
 
 glm::vec2 StartScene::getMousePosition()

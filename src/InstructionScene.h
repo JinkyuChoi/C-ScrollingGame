@@ -1,21 +1,19 @@
 #pragma once
-#ifndef __START_SCENE__
-#define __START_SCENE__
+#ifndef __INSTRUCTION_SCENE__
+#define __INSTRUCTION_SCENE__
 
 #include "Scene.h"
 #include "Label.h"
-#include "StartButton.h"
 #include "Map.h"
-#include "ExitButton.h"
-#include "InstructionButton.h"
+#include "MenuButton.h"
 
-class StartScene : public Scene
+class InstructionScene : public Scene
 {
 public:
 	// constructor
-	StartScene();
+	InstructionScene();
 	// destructor
-	~StartScene();
+	~InstructionScene();
 
 	// Inherited via Scene
 	virtual void draw() override;
@@ -29,18 +27,16 @@ public:
 
 private:
 	// Game Objects
-	Label* m_pStartLabel;
-	
-	StartButton* m_pStartButton;
-	ExitButton* m_pExitButton;
-	InstructionButton* m_pInstructionButton;
+	Label* m_pKeyLabel;
+	Label* m_pGoalLabel;
 
+	MenuButton* m_pMenuButton;
 	
 	Map* m_pMap;
 
 	// private data member
 	glm::vec2 m_mousePosition;
-	
+
 };
 
-#endif /* defined (__START_SCENE__) */
+#endif /* defined (__INSTRUCTION_SCENE__) */

@@ -13,7 +13,10 @@ enum GameObjectType {
 	START_BUTTON,
 	RESTART_BUTTON,
 	NUM_OF_TYPES,
-	MAP
+	MAP,
+	INSTURCTION_BUTTON,
+	EXIT_BUTTON,
+	MENU_BUTTON
 };
 
 #endif /* defined (__GAME_OBJECT_TYPE__)*/
