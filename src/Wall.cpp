@@ -44,12 +44,12 @@ void Wall::m_reset()
 {
 	if(isTopWall == true)
 	{
-		const auto randomY = Util::RandomRange(0, getHeight() * 0.7);
+		const auto randomY = Util::RandomRange(0, getHeight() * 0.5);
 		setPosition(glm::vec2(Config::SCREEN_WIDTH + getWidth(), randomY));
 	}
 	else
 	{
-		const auto randomY = Util::RandomRange(Config::SCREEN_HEIGHT - getHeight() * 0.7, Config::SCREEN_HEIGHT);
+		const auto randomY = Util::RandomRange(Config::SCREEN_HEIGHT - getHeight() * 0.5, Config::SCREEN_HEIGHT);
 		setPosition(glm::vec2(Config::SCREEN_WIDTH + getWidth(), randomY));
 	}
 }

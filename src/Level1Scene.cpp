@@ -23,6 +23,8 @@ void Level1Scene::draw()
 		enemy->draw();
 	}
 
+	m_pBonus->draw();
+
 	m_pWall1->draw();
 	m_pWall2->draw();
 	
@@ -41,9 +43,18 @@ void Level1Scene::update()
 		enemy->update();
 		CollisionManager::squaredRadiusCheck(m_pPlayer, enemy);
 	}
-
+	
+	m_pBonus->update();
+	if(CollisionManager::squaredRadiusCheck(m_pPlayer, m_pBonus))
+	{
+		const auto randomY = Util::RandomRange( 100, Config::SCREEN_HEIGHT - 100);
+		m_pBonus->setPosition(glm::vec2(Config::SCREEN_WIDTH + getWidth(), randomY));
+	};
+	
 	m_pWall1->update();
+	CollisionManager::squaredRadiusCheck(m_pPlayer, m_pWall1);
 	m_pWall2->update();
+	CollisionManager::squaredRadiusCheck(m_pPlayer, m_pWall2);
 }
 
 void Level1Scene::clean()
@@ -90,18 +101,6 @@ void Level1Scene::handleEvents()
 		case SDL_KEYDOWN:
 			switch (event.key.keysym.sym)
 			{
-			case SDLK_ESCAPE:
-				TheGame::Instance()->quit();
-				break;
-			case SDLK_1:
-				TheGame::Instance()->changeSceneState(SceneState::START_SCENE);
-				break;
-			case SDLK_2:
-				TheGame::Instance()->changeSceneState(SceneState::END_SCENE);
-				break;
-			
-
-				/************************************************************************/
 			case SDLK_w:
 				m_pPlayer->move(UP);
 				break;
@@ -157,12 +156,17 @@ void Level1Scene::start()
 	addChild(m_pPlayer);
 
 	m_pWall1 = new Wall();
+	m_pWall1->setPosition(glm::vec2(Config::SCREEN_WIDTH + 50, 0));
 	m_pWall1->isTopWall = true;
 	addChild(m_pWall1);
 
 	m_pWall2 = new Wall();
+	m_pWall2->setPosition(glm::vec2(Config::SCREEN_WIDTH + 50, Config::SCREEN_HEIGHT));
 	m_pWall2->isTopWall = false;
 	addChild(m_pWall2);
+
+	m_pBonus = new Bonus();
+	addChild(m_pBonus);
 	
 	m_buildEnemies();
 

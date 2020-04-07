@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "Label.h"
 #include "RestartButton.h"
+#include "MenuButton.h"
 
 class Map;
 
@@ -28,6 +29,7 @@ private:
 	// Game Objects
 	Label* m_pGameOverLabel{};
 	RestartButton* m_pRestartButton{};
+	MenuButton* m_pMenuButton{};
 	Map* m_pMap{};
 
 	// private data member

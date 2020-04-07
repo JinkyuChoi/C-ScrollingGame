@@ -18,18 +18,20 @@ void EndScene::draw()
 	m_pMap->draw();
 	m_pGameOverLabel->draw();
 	m_pRestartButton->draw();
+	m_pMenuButton->draw();
 }
 
 void EndScene::update()
 {
-	m_pMap->update();
 	m_pRestartButton->setMousePosition(m_mousePosition);
 	m_pRestartButton->ButtonClick();
+
+	m_pMenuButton->setMousePosition(m_mousePosition);
+	m_pMenuButton->ButtonClick();
 }
 
 void EndScene::clean()
 {
-	delete m_pGameOverLabel;
 	removeAllChildren();
 }
 
@@ -54,6 +56,7 @@ void EndScene::handleEvents()
 			{
 			case SDL_BUTTON_LEFT:
 				m_pRestartButton->setMouseButtonClicked(true);
+				m_pMenuButton->setMouseButtonClicked(true);
 				break;
 			}
 
@@ -63,31 +66,12 @@ void EndScene::handleEvents()
 			{
 			case SDL_BUTTON_LEFT:
 				m_pRestartButton->setMouseButtonClicked(false);
+				m_pMenuButton->setMouseButtonClicked(false);
 				break;
 			}
 			break;
 		case SDL_MOUSEWHEEL:
 			wheel = event.wheel.y;
-			break;
-
-
-
-
-
-
-		case SDL_KEYDOWN:
-			switch (event.key.keysym.sym)
-			{
-			case SDLK_ESCAPE:
-				TheGame::Instance()->quit();
-				break;
-			case SDLK_1:
-				TheGame::Instance()->changeSceneState(SceneState::LEVEL1_SCENE);
-				break;
-			case SDLK_2:
-				TheGame::Instance()->changeSceneState(SceneState::END_SCENE);
-				break;
-			}
 			break;
 
 		default:
@@ -101,12 +85,16 @@ void EndScene::start()
 	m_pMap = new Map();
 	addChild(m_pMap);
 	
-	const SDL_Color yellow = { 255, 255, 0, 255 };
-	m_pGameOverLabel = new Label("Game Over", "Dock51", 80, yellow, glm::vec2(320.0f, 100.0f));
+	const SDL_Color green = { 0, 255, 0, 255 };
+	m_pGameOverLabel = new Label("Game Over", "Dock51", 80, green, glm::vec2(Config::SCREEN_WIDTH * 0.5f, 100.0f));
 	m_pGameOverLabel->setParent(this);
 	addChild(m_pGameOverLabel);
 
 	m_pRestartButton = new RestartButton();
-	m_pRestartButton->setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.5f));
+	m_pRestartButton->setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.4f));
 	addChild(m_pRestartButton);
+
+	m_pMenuButton = new MenuButton();
+	m_pMenuButton->setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.6f));
+	addChild(m_pMenuButton);
 }

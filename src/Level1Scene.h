@@ -9,6 +9,7 @@
 #include "Enemy.h"
 #include "ScoreBoardManager.h"
 #include "Wall.h"
+#include "Bonus.h"
 
 class Level1Scene : public Scene
 {
@@ -39,6 +40,7 @@ private:
 	Wall* m_pWall1;
 	Wall* m_pWall2;
 
+	Bonus* m_pBonus;
 	
 	// private data member
 	glm::vec2 m_mousePosition;

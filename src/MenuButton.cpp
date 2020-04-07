@@ -3,7 +3,7 @@
 
 MenuButton::MenuButton()
 	:Button(
-		"../Assets/textures/restartButton.png",
+		"../Assets/textures/menuButton.png",
 		"menuButton",
 		MENU_BUTTON, glm::vec2(320.0f, 400.0f)), m_isClicked(false)
 {

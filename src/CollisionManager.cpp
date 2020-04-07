@@ -28,12 +28,12 @@ bool CollisionManager::squaredRadiusCheck(GameObject* object1, GameObject* objec
 			object2->setIsColliding(true);
 
 			switch (object2->getType()) {
-			case ISLAND:
+			case BONUS:
 				std::cout << "Collision with ISLAND!" << std::endl;
 				TheSoundManager::Instance()->playSound("yay", 0);
 				ScoreBoardManager::Instance()->setScore(ScoreBoardManager::Instance()->getScore() + 100);
 				break;
-			case CLOUD:
+			case ENEMY:
 				std::cout << "Collision with CLOUD!" << std::endl;
 				TheSoundManager::Instance()->playSound("thunder", 0);
 				ScoreBoardManager::Instance()->setLives(ScoreBoardManager::Instance()->getLives() - 1);
@@ -76,7 +76,7 @@ bool CollisionManager::AABBCheck(GameObject* object1, GameObject* object2)
 			object2->setIsColliding(true);
 
 			switch (object2->getType()) {
-			case ISLAND:
+			case BONUS:
 				std::cout << "Collision with Island!" << std::endl;
 				TheSoundManager::Instance()->playSound("yay", 0);
 				break;
@@ -223,11 +223,11 @@ bool CollisionManager::circleAABBCheck(GameObject* object1, GameObject* object2)
 			//std::cout << "Angle: " << angle << std::endl;
 
 			switch (object2->getType()) {
-			case ISLAND:
+			case BONUS:
 				std::cout << "Collision with ISLAND!" << std::endl;
 				TheSoundManager::Instance()->playSound("yay", 0);
 				break;
-			case CLOUD:
+			case ENEMY:
 				std::cout << "Collision with CLOUD!" << std::endl;
 				TheSoundManager::Instance()->playSound("thunder", 0);
 				break;

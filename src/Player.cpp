@@ -13,7 +13,7 @@ Player::Player() :m_maxSpeed(4.0f), m_isMoving(false)
 
 	setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.2f , Config::SCREEN_HEIGHT * 0.5f));
 	setIsColliding(false);
-	setType(GameObjectType::PLANE);
+	setType(GameObjectType::PLAYER);
 	setVelocity(glm::vec2(0.0f, 0.0f));
 	
 }
@@ -102,8 +102,8 @@ void Player::m_checkBounds()
 		setPosition(glm::vec2(getPosition().x, Config::SCREEN_HEIGHT * 0.10f));
 	}
 	
-	if (getPosition().y >= Config::SCREEN_HEIGHT * 0.90f)
+	if (getPosition().y >= Config::SCREEN_HEIGHT * 0.95f)
 	{
-		setPosition(glm::vec2(getPosition().x, Config::SCREEN_HEIGHT * 0.90f));
+		setPosition(glm::vec2(getPosition().x, Config::SCREEN_HEIGHT * 0.95f));
 	}
 }

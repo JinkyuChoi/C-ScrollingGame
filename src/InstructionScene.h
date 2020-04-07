@@ -27,8 +27,12 @@ public:
 
 private:
 	// Game Objects
-	Label* m_pKeyLabel;
-	Label* m_pGoalLabel;
+	Label* m_pKeyLabel1;
+	Label* m_pKeyLabel2;
+	Label* m_pKeyLabel3;
+	Label* m_pGoalLabel1;
+	Label* m_pGoalLabel2;
+	Label* m_pGoalLabel3;
 
 	MenuButton* m_pMenuButton;
 	
