@@ -17,15 +17,15 @@ void Level1Scene::draw()
 	m_pMap->draw();
 	m_pMap2->draw();
 	
-	m_pIsland->draw();
+	//m_pEnemy->draw();
 	
 	m_pPlayer->draw();
 
-	for (auto cloud : m_pClouds)
+	for (auto enemy : m_pEnemies)
 	{
-		cloud->draw();
+		enemy->draw();
 	}
-
+	
 	ScoreBoardManager::Instance()->Draw();
 }
 
@@ -34,20 +34,14 @@ void Level1Scene::update()
 	m_pMap->update();
 	m_pMap2->update();
 	
-	m_pIsland->update();
-
-	//m_pPlayer->setPosition(glm::vec2(m_mousePosition.x, m_pPlayer->getPosition().y));
 	m_pPlayer->update();
 
-	//CollisionManager::AABBCheck(m_pPlane, m_pIsland);
-
-	CollisionManager::squaredRadiusCheck(m_pPlayer, m_pIsland);
-
-	for (auto cloud : m_pClouds)
+	for (auto enemy : m_pEnemies)
 	{
-		cloud->update();
-		CollisionManager::squaredRadiusCheck(m_pPlayer, cloud);
+		enemy->update();
+		CollisionManager::squaredRadiusCheck(m_pPlayer, enemy);
 	}
+
 }
 
 void Level1Scene::clean()
@@ -157,14 +151,10 @@ void Level1Scene::start()
 	addChild(m_pMap2);
 	m_pMap2->setPosition(glm::vec2(1000, 0));
 	
-	m_pIsland = new Island(); // instantiates Island
-	addChild(m_pIsland);
-	
-	m_pPlayer = new Player(); // instantiates Plane
+	m_pPlayer = new Player(); 
 	addChild(m_pPlayer);
 
-	// instantiate Cloud Pool
-	m_buildClouds();
+	m_buildEnemies();
 
 	ScoreBoardManager::Instance()->Start();
 }
@@ -174,13 +164,45 @@ glm::vec2 Level1Scene::getMousePosition()
 	return m_mousePosition;
 }
 
-void Level1Scene::m_buildClouds()
+void Level1Scene::m_buildEnemies()
 {
-	for (auto i = 0; i < m_cloudNum; ++i)
+	for (auto i = 0; i < m_EnemyNum; i++)
 	{
-		auto cloud = new Cloud();
-		m_pClouds.push_back(cloud);
-		addChild(cloud);
+		auto enemy = new Enemy();
+		switch (i)
+		{
+		case 0:
+			enemy->yPosition = Config::SCREEN_HEIGHT * 0.15;
+			break;
+		case 1:
+			enemy->yPosition = Config::SCREEN_HEIGHT * 0.30;
+			break;
+		case 2:
+			enemy->yPosition = Config::SCREEN_HEIGHT * 0.45;
+			break;
+		case 3:
+			enemy->yPosition = Config::SCREEN_HEIGHT * 0.60;
+			break;
+		case 4:
+			enemy->yPosition = Config::SCREEN_HEIGHT * 0.75;
+			break;
+		case 5:
+			enemy->yPosition = Config::SCREEN_HEIGHT * 0.90;
+			break;
+		}
+
+		m_pEnemies.push_back(enemy);
+		addChild(enemy);
+	}
+}
+
+void Level1Scene::m_buildBullets()
+{
+	for (auto i = 0; i < 10; i++)
+	{
+		auto bullet = new Enemy();
+		m_pEnemies.push_back(bullet);
+		addChild(bullet);
 	}
 }
 

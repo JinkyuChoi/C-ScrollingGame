@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Game.h"
 
-Player::Player() :m_maxSpeed(3.0f), m_isMoving(false)
+Player::Player() :m_maxSpeed(4.0f), m_isMoving(false)
 {
 	TheTextureManager::Instance()->load("../Assets/textures/player.png",
 		"player", TheGame::Instance()->getRenderer());
@@ -97,13 +97,13 @@ void Player::m_checkBounds()
 		setPosition(glm::vec2(Config::SCREEN_WIDTH * 0.95f, getPosition().y));
 	}
 	
-	if (getPosition().y <= Config::SCREEN_HEIGHT * 0.05f)
+	if (getPosition().y <= Config::SCREEN_HEIGHT * 0.10f)
 	{
-		setPosition(glm::vec2(getPosition().x, Config::SCREEN_HEIGHT * 0.05f));
+		setPosition(glm::vec2(getPosition().x, Config::SCREEN_HEIGHT * 0.10f));
 	}
 	
-	if (getPosition().y >= Config::SCREEN_HEIGHT * 0.95f)
+	if (getPosition().y >= Config::SCREEN_HEIGHT * 0.90f)
 	{
-		setPosition(glm::vec2(getPosition().x, Config::SCREEN_HEIGHT * 0.95f));
+		setPosition(glm::vec2(getPosition().x, Config::SCREEN_HEIGHT * 0.90f));
 	}
 }

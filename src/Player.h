@@ -25,6 +25,7 @@ private:
 
 	bool m_isMoving;
 
+	
 	void m_checkBounds();
 };
 

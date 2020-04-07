@@ -8,6 +8,8 @@
 #include "Map.h"
 #include "Cloud.h"
 #include "Config.h"
+#include "Enemy.h"
+#include "Bullet.h"
 
 class Level1Scene : public Scene
 {
@@ -27,16 +29,22 @@ public:
 private:
 	// game objects
 	Player* m_pPlayer;
-	Island* m_pIsland;
+	
 	Map* m_pMap;
 	Map* m_pMap2;
 
-	int m_cloudNum = Config::CLOUD_NUM;
-	std::vector<Cloud*> m_pClouds;
-	void m_buildClouds();
+	int m_EnemyNum = Config::ENEMY_NUM;
+	std::vector<Enemy*> m_pEnemies;
+	void m_buildEnemies();
+
+	std::vector<Bullet*> m_pBullets;
+	void m_buildBullets();
+
 
 	// private data member
 	glm::vec2 m_mousePosition;
+
+	int m_xPosition;
 	
 	
 };
