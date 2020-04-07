@@ -82,32 +82,32 @@ void InstructionScene::start()
 	addChild(m_pMap);
 
 	SDL_Color white = { 255, 255, 255, 255 };
-	m_pKeyLabel1 = new Label("KEY SETTINGS", "Dock51", 20, white,
+	m_pKeyLabel1 = new Label("KEY SETTINGS", "PressStart2P-Regular", 20, white,
 		glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.25f));
 	m_pKeyLabel1->setParent(this);
 	addChild(m_pKeyLabel1);
 
-	m_pKeyLabel2 = new Label("MOVEMENT - W A S D", "Dock51", 20, white,
+	m_pKeyLabel2 = new Label("MOVEMENT - W A S D", "PressStart2P-Regular", 20, white,
 		glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.3f));
 	m_pKeyLabel2->setParent(this);
 	addChild(m_pKeyLabel2);
 
-	m_pKeyLabel3 = new Label("ATTACK - SPACE BAR", "Dock51", 20, white,
+	m_pKeyLabel3 = new Label("ATTACK - SPACE BAR", "PressStart2P-Regular", 20, white,
 		glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.35f));
 	m_pKeyLabel3->setParent(this);
 	addChild(m_pKeyLabel3);
 
-	m_pGoalLabel1 = new Label("POINT TABLE", "Dock51", 20, white,
+	m_pGoalLabel1 = new Label("POINT TABLE", "PressStart2P-Regular", 20, white,
 		glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.45f));
 	m_pGoalLabel1->setParent(this);
 	addChild(m_pGoalLabel1);
 
-	m_pGoalLabel2 = new Label("DODGE ENEMY - 10 point", "Dock51", 20, white,
+	m_pGoalLabel2 = new Label("DODGE ENEMY - 10 point", "PressStart2P-Regular", 20, white,
 		glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.5f));
 	m_pGoalLabel2->setParent(this);
 	addChild(m_pGoalLabel2);
 
-	m_pGoalLabel3 = new Label("COLLECT BONUS - 100 point", "Dock51", 20, white,
+	m_pGoalLabel3 = new Label("COLLECT BONUS - 100 point", "PressStart2P-Regular", 20, white,
 		glm::vec2(Config::SCREEN_WIDTH * 0.5f, Config::SCREEN_HEIGHT * 0.55f));
 	m_pGoalLabel3->setParent(this);
 	addChild(m_pGoalLabel3);

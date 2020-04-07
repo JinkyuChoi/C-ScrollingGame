@@ -93,7 +93,7 @@ void StartScene::start()
 
 	
 	SDL_Color green = { 0, 255, 0, 255 };
-	m_pStartLabel = new Label("Digital Space", "Dock51", 80, green, 
+	m_pStartLabel = new Label("Digital Space", "PressStart2P-Regular", 60, green, 
 		glm::vec2(Config::SCREEN_WIDTH * 0.5f, 100.0f));
 	m_pStartLabel->setParent(this);
 	addChild(m_pStartLabel);

@@ -28,6 +28,7 @@ public:
 private:
 	// Game Objects
 	Label* m_pGameOverLabel{};
+	Label* m_pFinalScoreLabel;
 	RestartButton* m_pRestartButton{};
 	MenuButton* m_pMenuButton{};
 	Map* m_pMap{};
