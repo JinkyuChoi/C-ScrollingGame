@@ -1,6 +1,14 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//LevelScene
+//This is for LevelScene to control all player control and collider
+//Here is where player plays the game
+//Referenced from Tom Tsiliopoulos
+
+
 #pragma once
-#ifndef __LEVEL_1_SCENE__
-#define __LEVEL_1_SCENE__
+#ifndef __LEVEL_SCENE__
+#define __LEVEL_SCENE__
 
 #include "Scene.h"
 #include "Player.h"
@@ -11,11 +19,11 @@
 #include "Wall.h"
 #include "Bonus.h"
 
-class Level1Scene : public Scene
+class LevelScene : public Scene
 {
 public:
-	Level1Scene();
-	~Level1Scene();
+	LevelScene();
+	~LevelScene();
 	
 	void draw() override;
 	void update() override;
@@ -46,4 +54,4 @@ private:
 	glm::vec2 m_mousePosition;
 };
 
-#endif /* defined (__LEVEL_1_SCENE__) */
+#endif /* defined (__LEVEL_SCENE__) */

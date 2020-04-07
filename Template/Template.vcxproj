@@ -176,12 +176,11 @@
     <ClCompile Include="..\src\InstructionButton.cpp" />
     <ClCompile Include="..\src\InstructionScene.cpp" />
     <ClCompile Include="..\src\Label.cpp" />
-    <ClCompile Include="..\src\Level1Scene.cpp" />
+    <ClCompile Include="..\src\LevelScene.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Map.cpp" />
     <ClCompile Include="..\src\MenuButton.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
-    <ClCompile Include="..\src\PlayScene.cpp" />
     <ClCompile Include="..\src\RestartButton.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
     <ClCompile Include="..\src\ScoreBoardManager.cpp" />
@@ -217,12 +216,11 @@
     <ClInclude Include="..\src\InstructionButton.h" />
     <ClInclude Include="..\src\InstructionScene.h" />
     <ClInclude Include="..\src\Label.h" />
-    <ClInclude Include="..\src\Level1Scene.h" />
+    <ClInclude Include="..\src\LevelScene.h" />
     <ClInclude Include="..\src\MenuButton.h" />
     <ClInclude Include="..\src\Move.h" />
     <ClInclude Include="..\src\Map.h" />
     <ClInclude Include="..\src\Player.h" />
-    <ClInclude Include="..\src\PlayScene.h" />
     <ClInclude Include="..\src\RestartButton.h" />
     <ClInclude Include="..\src\Scene.h" />
     <ClInclude Include="..\src\SceneState.h" />

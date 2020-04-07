@@ -25,7 +25,7 @@ bool RestartButton::ButtonClick()
 			ScoreBoardManager::Instance()->Start();
 			ScoreBoardManager::Instance()->setLives(5);
 			ScoreBoardManager::Instance()->setScore(0);
-			Game::Instance()->changeSceneState(LEVEL1_SCENE);
+			Game::Instance()->changeSceneState(LEVEL_SCENE);
 			m_isClicked = true;
 		}
 		return true;

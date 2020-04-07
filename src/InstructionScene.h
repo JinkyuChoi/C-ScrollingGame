@@ -1,3 +1,11 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//InstructionScene
+//This is for InstructionScene to show labels and button to go back to menu
+//Here is where Player checks the key settings and goal for the game
+//Referenced from Tom Tsiliopoulos
+
+
 #pragma once
 #ifndef __INSTRUCTION_SCENE__
 #define __INSTRUCTION_SCENE__

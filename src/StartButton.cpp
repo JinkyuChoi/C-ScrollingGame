@@ -21,7 +21,7 @@ bool StartButton::ButtonClick()
 	{
 		if(!m_isClicked)
 		{
-			Game::Instance()->changeSceneState(LEVEL1_SCENE);
+			Game::Instance()->changeSceneState(LEVEL_SCENE);
 			m_isClicked = true;
 		}
 		return true;

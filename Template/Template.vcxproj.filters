@@ -72,9 +72,6 @@
     <ClCompile Include="..\src\StartScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\PlayScene.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\EndScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
@@ -92,9 +89,6 @@
     </ClCompile>
     <ClCompile Include="..\src\CollisionManager.cpp">
       <Filter>Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Level1Scene.cpp">
-      <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ScoreBoardManager.cpp">
       <Filter>Managers</Filter>
@@ -141,6 +135,9 @@
     <ClCompile Include="..\src\BulletManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\LevelScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Game.h">
@@ -185,9 +182,6 @@
     <ClInclude Include="..\src\StartScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\PlayScene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\EndScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -217,9 +211,6 @@
     </ClInclude>
     <ClInclude Include="..\src\SceneState.h">
       <Filter>Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Level1Scene.h">
-      <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Move.h">
       <Filter>Enums</Filter>
@@ -268,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="..\src\BulletManager.h">
       <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LevelScene.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

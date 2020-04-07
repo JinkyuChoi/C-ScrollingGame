@@ -1,3 +1,9 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//Bullet
+//This is for Bullet to move
+//Referenced from Tom Tsiliopoulos
+
 #pragma once
 #include "DisplayObject.h"
 #include "Game.h"

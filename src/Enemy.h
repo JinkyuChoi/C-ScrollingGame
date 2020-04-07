@@ -1,3 +1,9 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//Enemy
+//This is for Enemy to move
+//Referenced from Tom Tsiliopoulos
+
 #pragma once
 #ifndef __ENEMY__
 #define __ENEMY__

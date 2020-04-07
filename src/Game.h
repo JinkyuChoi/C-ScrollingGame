@@ -23,7 +23,7 @@
 
 // Scenes
 #include "StartScene.h"
-#include "Level1Scene.h"
+#include "LevelScene.h"
 #include "InstructionScene.h"
 #include "EndScene.h"
 

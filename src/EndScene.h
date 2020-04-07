@@ -1,3 +1,11 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//EndScene
+//This is for EndScene to restart or go back to menu
+//Here is where Player checks the final score after game over
+//Referenced from Tom Tsiliopoulos
+
+
 #pragma once
 #ifndef __END_SCENE__
 #define __END_SCENE__

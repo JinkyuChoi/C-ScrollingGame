@@ -1,3 +1,10 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//Player
+//This is for Main Player to move and attack
+//Referenced from Tom Tsiliopoulos
+
+
 #pragma once
 #ifndef __PLAYER__
 #define __PLAYER__

@@ -1,18 +1,18 @@
-#include "Level1Scene.h"
+#include "LevelScene.h"
 #include <iostream>
 #include "BulletManager.h"
 
 
-Level1Scene::Level1Scene()
+LevelScene::LevelScene()
 {
 	start();
 }
 
-Level1Scene::~Level1Scene()
+LevelScene::~LevelScene()
 {
 }
 
-void Level1Scene::draw()
+void LevelScene::draw()
 {
 	m_pMap->draw();
 	m_pMap2->draw();
@@ -34,7 +34,7 @@ void Level1Scene::draw()
 	ScoreBoardManager::Instance()->Draw();
 }
 
-void Level1Scene::update()
+void LevelScene::update()
 {
 	m_pMap->update();
 	m_pMap2->update();
@@ -84,11 +84,11 @@ void Level1Scene::update()
 	CollisionManager::squaredRadiusCheck(m_pPlayer, m_pWall2);
 }
 
-void Level1Scene::clean()
+void LevelScene::clean()
 {
 }
 
-void Level1Scene::handleEvents()
+void LevelScene::handleEvents()
 {
 	auto wheel = 0;
 
@@ -172,7 +172,7 @@ void Level1Scene::handleEvents()
 	}
 }
 
-void Level1Scene::start()
+void LevelScene::start()
 {	
 	m_pMap = new Map();
 	addChild(m_pMap);
@@ -203,12 +203,12 @@ void Level1Scene::start()
 	ScoreBoardManager::Instance()->Start();
 }
 
-glm::vec2 Level1Scene::getMousePosition()
+glm::vec2 LevelScene::getMousePosition()
 {
 	return m_mousePosition;
 }
 
-void Level1Scene::m_buildEnemies()
+void LevelScene::m_buildEnemies()
 {
 	for (auto i = 0; i < m_EnemyNum; i++)
 	{

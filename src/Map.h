@@ -1,3 +1,10 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//Map
+//This is for Map to scroll
+//Referenced from Tom Tsiliopoulos
+
+
 #pragma once
 #ifndef __MAP__
 #define __MAP__

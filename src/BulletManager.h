@@ -1,3 +1,9 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//Bullet Manager
+//All the bullets are managed here
+//Referenced from Tom Tsiliopoulos, and Hyungseok Lee
+
 #pragma once
 #ifndef __BULLET_MANAGER__
 #define __BULLET_MANAGER__

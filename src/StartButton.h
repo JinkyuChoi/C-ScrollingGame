@@ -1,3 +1,10 @@
+//301024988 Jinkyu Choi
+//2020-04-07
+//StartButton
+//This is for StartButton to start the game
+//Referenced from Tom Tsiliopoulos
+
+
 #pragma once
 #ifndef __START_BUTTON__
 #define __START_BUTTON__
