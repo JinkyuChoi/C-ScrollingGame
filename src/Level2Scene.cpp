@@ -1,21 +1,23 @@
-#include "Level1Scene.h"
+#include "Level2Scene.h"
 #include <iostream>
+#include "ScoreBoardManager.h"
 
-
-Level1Scene::Level1Scene()
+Level2Scene::Level2Scene()
 {
 	start();
 }
 
-Level1Scene::~Level1Scene()
+Level2Scene::~Level2Scene()
 {
 }
 
-void Level1Scene::draw()
+void Level2Scene::draw()
 {
 	m_pMap->draw();
 	m_pMap2->draw();
-		
+
+	//m_pEnemy->draw();
+
 	m_pPlayer->draw();
 
 	for (auto enemy : m_pEnemies)
@@ -23,17 +25,14 @@ void Level1Scene::draw()
 		enemy->draw();
 	}
 
-	m_pWall1->draw();
-	m_pWall2->draw();
-	
 	ScoreBoardManager::Instance()->Draw();
 }
 
-void Level1Scene::update()
+void Level2Scene::update()
 {
 	m_pMap->update();
 	m_pMap2->update();
-	
+
 	m_pPlayer->update();
 
 	for (auto enemy : m_pEnemies)
@@ -42,20 +41,18 @@ void Level1Scene::update()
 		CollisionManager::squaredRadiusCheck(m_pPlayer, enemy);
 	}
 
-	m_pWall1->update();
-	m_pWall2->update();
 }
 
-void Level1Scene::clean()
+void Level2Scene::clean()
 {
 }
 
-void Level1Scene::handleEvents()
+void Level2Scene::handleEvents()
 {
 	auto wheel = 0;
 
 	SDL_Event event;
-	while(SDL_PollEvent(&event))
+	while (SDL_PollEvent(&event))
 	{
 		switch (event.type)
 		{
@@ -68,19 +65,19 @@ void Level1Scene::handleEvents()
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
-			switch(event.button.button)
+			switch (event.button.button)
 			{
 			case SDL_BUTTON_LEFT:
-				
+
 				break;
 			}
-		
+
 			break;
 		case SDL_MOUSEBUTTONUP:
 			switch (event.button.button)
 			{
 			case SDL_BUTTON_LEFT:
-				
+
 				break;
 			}
 			break;
@@ -99,7 +96,7 @@ void Level1Scene::handleEvents()
 			case SDLK_2:
 				TheGame::Instance()->changeSceneState(SceneState::END_SCENE);
 				break;
-			
+
 
 				/************************************************************************/
 			case SDLK_w:
@@ -115,7 +112,7 @@ void Level1Scene::handleEvents()
 				m_pPlayer->move(RIGHT);
 				break;
 			}
-			
+
 			break;
 		case SDL_KEYUP:
 			switch (event.key.keysym.sym)
@@ -135,7 +132,7 @@ void Level1Scene::handleEvents()
 				m_pPlayer->setIsMoving(false);
 				break;
 			}
-			
+
 			break;
 		default:
 			break;
@@ -143,7 +140,7 @@ void Level1Scene::handleEvents()
 	}
 }
 
-void Level1Scene::start()
+void Level2Scene::start()
 {
 	m_pMap = new Map();
 	addChild(m_pMap);
@@ -152,29 +149,21 @@ void Level1Scene::start()
 	m_pMap2 = new Map();
 	addChild(m_pMap2);
 	m_pMap2->setPosition(glm::vec2(1000, 0));
-	
-	m_pPlayer = new Player(); 
+
+	m_pPlayer = new Player();
 	addChild(m_pPlayer);
 
-	m_pWall1 = new Wall();
-	m_pWall1->isTopWall = true;
-	addChild(m_pWall1);
-
-	m_pWall2 = new Wall();
-	m_pWall2->isTopWall = false;
-	addChild(m_pWall2);
-	
 	m_buildEnemies();
 
 	ScoreBoardManager::Instance()->Start();
 }
 
-glm::vec2 Level1Scene::getMousePosition()
+glm::vec2 Level2Scene::getMousePosition()
 {
 	return m_mousePosition;
 }
 
-void Level1Scene::m_buildEnemies()
+void Level2Scene::m_buildEnemies()
 {
 	for (auto i = 0; i < m_EnemyNum; i++)
 	{

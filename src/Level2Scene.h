@@ -1,21 +1,19 @@
 #pragma once
-#ifndef __LEVEL_1_SCENE__
-#define __LEVEL_1_SCENE__
+#ifndef __LEVEL_2_SCENE__
+#define __LEVEL_2_SCENE__
 
 #include "Scene.h"
 #include "Player.h"
 #include "Map.h"
 #include "Game.h"
 #include "Enemy.h"
-#include "ScoreBoardManager.h"
-#include "Wall.h"
 
-class Level1Scene : public Scene
+class Level2Scene : public Scene
 {
 public:
-	Level1Scene();
-	~Level1Scene();
-	
+	Level2Scene();
+	~Level2Scene();
+
 	void draw() override;
 	void update() override;
 	void clean() override;
@@ -28,7 +26,7 @@ public:
 private:
 	// game objects
 	Player* m_pPlayer;
-	
+
 	Map* m_pMap;
 	Map* m_pMap2;
 
@@ -36,12 +34,9 @@ private:
 	std::vector<Enemy*> m_pEnemies;
 	void m_buildEnemies();
 
-	Wall* m_pWall1;
-	Wall* m_pWall2;
 
-	
 	// private data member
 	glm::vec2 m_mousePosition;
 };
 
-#endif /* defined (__LEVEL_1_SCENE__) */
+#endif /* defined (__LEVEL_2_SCENE__) */
