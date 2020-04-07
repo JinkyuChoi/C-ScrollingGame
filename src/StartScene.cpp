@@ -88,6 +88,9 @@ void StartScene::handleEvents()
 // this function is used for initialization
 void StartScene::start()
 {
+	TheSoundManager::Instance()->load("../Assets/audio/background.ogg", "background", SOUND_MUSIC);
+	TheSoundManager::Instance()->playMusic("background", 999);
+	
 	m_pMap = new Map();
 	addChild(m_pMap);
 

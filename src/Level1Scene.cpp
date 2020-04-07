@@ -1,5 +1,6 @@
 #include "Level1Scene.h"
 #include <iostream>
+#include "BulletManager.h"
 
 
 Level1Scene::Level1Scene()
@@ -15,7 +16,9 @@ void Level1Scene::draw()
 {
 	m_pMap->draw();
 	m_pMap2->draw();
-		
+
+	BulletManager::Instance()->draw();
+	
 	m_pPlayer->draw();
 
 	for (auto enemy : m_pEnemies)
@@ -36,17 +39,41 @@ void Level1Scene::update()
 	m_pMap->update();
 	m_pMap2->update();
 	
+	BulletManager::Instance()->update();
+	for(auto bullet: BulletManager::Instance()->getBullets())
+	{
+		for (auto enemy : m_pEnemies)
+		{
+			if (CollisionManager::squaredRadiusCheck(bullet, enemy))
+			{
+				TheSoundManager::Instance()->load("../Assets/audio/kill.ogg", "kill", SOUND_SFX);
+				TheSoundManager::Instance()->playSound("kill", 0);
+				enemy->setPosition(glm::vec2(Config::SCREEN_WIDTH + 30, enemy->getPosition().y));
+				bullet->setPosition(glm::vec2(0, -50));
+			};
+		}
+	}
+	
 	m_pPlayer->update();
 
 	for (auto enemy : m_pEnemies)
 	{
 		enemy->update();
-		CollisionManager::squaredRadiusCheck(m_pPlayer, enemy);
+		if(CollisionManager::squaredRadiusCheck(m_pPlayer, enemy))
+		{
+			TheSoundManager::Instance()->load("../Assets/audio/damage.ogg", "damage", SOUND_SFX);
+			TheSoundManager::Instance()->playSound("damage", 0);
+			ScoreBoardManager::Instance()->setLives(ScoreBoardManager::Instance()->getLives() - 1);
+			enemy->setPosition(glm::vec2(Config::SCREEN_WIDTH + 30, enemy->getPosition().y));
+		};
 	}
 	
 	m_pBonus->update();
 	if(CollisionManager::squaredRadiusCheck(m_pPlayer, m_pBonus))
 	{
+		TheSoundManager::Instance()->load("../Assets/audio/bonus.ogg", "bonus", SOUND_SFX);
+		TheSoundManager::Instance()->playSound("bonus", 0);
+		ScoreBoardManager::Instance()->setScore(ScoreBoardManager::Instance()->getScore() + 100);
 		const auto randomY = Util::RandomRange( 100, Config::SCREEN_HEIGHT - 100);
 		m_pBonus->setPosition(glm::vec2(Config::SCREEN_WIDTH + getWidth(), randomY));
 	};
@@ -113,6 +140,9 @@ void Level1Scene::handleEvents()
 			case SDLK_d:
 				m_pPlayer->move(RIGHT);
 				break;
+			case SDLK_SPACE:
+				m_pPlayer->attack();
+				break;
 			}
 			
 			break;
@@ -143,7 +173,7 @@ void Level1Scene::handleEvents()
 }
 
 void Level1Scene::start()
-{
+{	
 	m_pMap = new Map();
 	addChild(m_pMap);
 	m_pMap->setPosition(glm::vec2(0, 0));

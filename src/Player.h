@@ -15,6 +15,7 @@ public:
 	void clean() override;
 
 	void move(Move newMove);
+	void attack();
 
 	//getters and setters
 	bool getIsMoving();

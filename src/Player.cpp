@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Game.h"
+#include "BulletManager.h"
 
 Player::Player() :m_maxSpeed(4.0f), m_isMoving(false)
 {
@@ -73,6 +74,13 @@ void Player::move(Move newMove)
 		setVelocity(glm::vec2(getVelocity().x, 1.0f * m_maxSpeed));
 		break;
 	}
+}
+
+void Player::attack()
+{
+	BulletManager::Instance()->getBullet()->setPosition(glm::vec2(getPosition().x + 5.0f, getPosition().y));
+	TheSoundManager::Instance()->load("../Assets/audio/attack.ogg", "attack", SOUND_SFX);
+	TheSoundManager::Instance()->playSound("attack", 0);
 }
 
 bool Player::getIsMoving()

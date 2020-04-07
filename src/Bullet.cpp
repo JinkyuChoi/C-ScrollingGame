@@ -1,5 +1,4 @@
 #include "Bullet.h"
-#include "Game.h"
 
 Bullet::Bullet()
 {
@@ -11,9 +10,10 @@ Bullet::Bullet()
 	setWidth(size.x);
 	setHeight(size.y);
 
-	m_reset();
 	setIsColliding(false);
-	setType(GameObjectType::ENEMY);
+	setType(GameObjectType::BULLET);
+	setPosition(glm::vec2(0.0f, -50.0f));
+	setVelocity(glm::vec2(15.0f, 0.0f));
 
 	//TheSoundManager::Instance()->load("../Assets/audio/yay.ogg", "yay", SOUND_SFX);
 }
@@ -34,29 +34,16 @@ void Bullet::draw()
 void Bullet::update()
 {
 	m_move();
-	m_checkBounds();
 }
 
 void Bullet::clean()
 {
 }
 
-void Bullet::m_reset()
-{
-	setPosition(glm::vec2(, ));
-}
 
 void Bullet::m_move()
 {
 	const int xPos = getPosition().x + getVelocity().x;
 	const int yPos = getPosition().y + getVelocity().y;
 	setPosition(glm::vec2(xPos, yPos));
-}
-
-void Bullet::m_checkBounds()
-{
-	if (getPosition().y > Config::SCREEN_WIDTH + getWidth())
-	{
-		m_reset();
-	}
 }
